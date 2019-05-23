@@ -12,7 +12,6 @@ export default class EntityMapper extends BaseMapper {
         label: 'Test'
       })
       resolve()
-
     })
   }
 }
