@@ -34,13 +34,7 @@ export default Vue.extend({
     }
   },
   mounted () {
-    /*
-    this.mapper = new Mapper('Entity').ready().then(({ selections, filters }) => {
-      this.selections = selections
-      this.filters = filters
-    })
-    */
-    this.mapper = new Mapper('Entity').ready().then((value:any) => {
+    this.mapper = new Mapper('sys_scr_Script').ready().then((value:any) => {
       this.selections = value.selections
       this.filters = value.filters
     })

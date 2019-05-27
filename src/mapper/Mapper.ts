@@ -20,8 +20,13 @@ export default class Mapper {
 
   public addOrExtend (name: string, type: string, properties: object, defaultValue:any = undefined): void{
     this.selections[name] = defaultValue
-    // FIXME: overwrite existing values
-    this.filters.push({ name, type, ...properties })
+    let found = this.filters.find((filter:any) => {return 'name' in filter && filter.name === name})
+
+    if (found === undefined) {
+      this.filters.push({ name, type, ...properties })
+    } else {
+      Object.assign(found, { type, ...properties })
+    }
   }
 
   public getFilterDefinition () {
